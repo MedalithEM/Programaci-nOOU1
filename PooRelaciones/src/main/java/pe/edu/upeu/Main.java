@@ -8,6 +8,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<Producto> prod=new ArrayList<>();
+
 //prod es un objeto
         prod.add(new Producto("P001", "Televisor",
                 4000, 20 ));
@@ -26,5 +27,12 @@ public class Main {
         System.out.println(cantiad);
         System.out.println(cantiad instanceof double);
 
+        var coche1=new Coche("Toyota");
+
+        var coche2=new Coche("Ford", 150);
+
     }
 }
+//clase es un molde o plantilla
+//creamos constructores para crear objeto
+//sobre carga de costructores, varios constructores
