@@ -7,11 +7,9 @@ public class Producto {
     String nombre;
     double precio;
     int stock;
-    double cantidad;
     double igv;
 
-
-    //Constructor, si hay mas un construtor se denomica sobre carga de constructores
+    //Constructor, si hay mas de un constructor se denomina sobre carga de constructores
     public Producto(String codigo,
                     String nombre, double precio,
                     int stock) {
@@ -25,12 +23,10 @@ public class Producto {
                     String nombre, double precio) {
         this(codigo, nombre, precio, 0);
     }
-
-    //metodo es getIgv porque empieza con minuscula
+    //Metodos
     public double getIgv() {
-        if (precio>0)
-            throw  new IllegalArgumentException();
-
+        if(precio<0)
+            throw new IllegalArgumentException();
         return precio*0.18;
     }
 }
