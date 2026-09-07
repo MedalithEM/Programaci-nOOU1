@@ -39,7 +39,7 @@ public abstract class AbstractJpaRepository<T, ID> implements  ICrudGenericoRepo
         return data.stream()
                 .filter(entity->getId(entity).equals(id))
                 .findFirst();
-        
+
     }
 
     @Override
@@ -49,11 +49,13 @@ public abstract class AbstractJpaRepository<T, ID> implements  ICrudGenericoRepo
 
     @Override
     public void deleteById(ID id) {
+        data.removeIf(entity->getId(entity).equals(id));
+
 
     }
 
     @Override
     public boolean existsById(ID id) {
-        return false;
+        return data.stream().anyMatch(entity->getId(entity).equals(id));
     }
 }
