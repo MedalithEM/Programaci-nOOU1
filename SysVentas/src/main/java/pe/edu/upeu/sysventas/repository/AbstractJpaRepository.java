@@ -12,7 +12,7 @@ public abstract class AbstractJpaRepository<T, ID> implements  ICrudGenericoRepo
     protected abstract ID generateId();
 
     @Override
-    public T SAVE(T entity) {
+    public T save(T entity) {
         if (getId(entity)==null){
             setId(entity, generateId());
         }
