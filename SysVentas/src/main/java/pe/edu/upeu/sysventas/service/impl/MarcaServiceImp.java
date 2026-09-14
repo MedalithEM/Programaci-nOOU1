@@ -6,7 +6,7 @@ import pe.edu.upeu.sysventas.repository.ICrudGenericoRepository;
 import pe.edu.upeu.sysventas.repository.MarcaRepository;
 import pe.edu.upeu.sysventas.service.IMarcaService;
 @RequiredArgsConstructor
-public class MarcaService extends CrudGenerioServiceImp<Marca, Long> implements IMarcaService {
+public class MarcaServiceImp extends CrudGenerioServiceImp<Marca, Long> implements IMarcaService {
     private final MarcaRepository marcaRepository;
 
     @Override

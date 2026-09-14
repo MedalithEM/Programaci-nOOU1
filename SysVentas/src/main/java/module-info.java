@@ -8,6 +8,7 @@ module pe.edu.upeu.sysventas {
     requires jakarta.validation;
     requires java.sql;
 
+    opens pe.edu.upeu.sysventas.controller to javafx.fxml;
     opens pe.edu.upeu.sysventas to javafx.fxml;
     exports pe.edu.upeu.sysventas;
 }
