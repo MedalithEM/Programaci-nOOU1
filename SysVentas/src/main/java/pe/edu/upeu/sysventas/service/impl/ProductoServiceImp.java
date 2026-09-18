@@ -13,9 +13,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class ProductoServiceImp extends CrudGenerioServiceImp<Producto, Long> implements IProductoService {
-
     private final ProductoRepository productoRepository;
-
     @Override
     protected ICrudGenericoRepository<Producto, Long> getRepo() {
         return productoRepository;
@@ -32,5 +30,14 @@ public class ProductoServiceImp extends CrudGenerioServiceImp<Producto, Long> im
             listar.add(cb);
         }
         return listar;
+    }
+
+    @Override
+    public List<Producto> findAll() {
+        if(productoRepository.findAll().isEmpty()){
+            productoRepository.seedData();
+        }
+
+        return productoRepository.findAll();
     }
 }
