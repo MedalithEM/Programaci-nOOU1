@@ -20,13 +20,17 @@ public class ProductoController {
     ComboBox<ComboBoxOption> cbxTipoProducto;
 
     @FXML
-    ComboBox<ComboBoxOption> cbxCategoria;
+    ComboBox<ComboBoxOption> cbxCategoria, cbxMarca, cbxUnidadMedida;
+
+
 
     @FXML
     public void initialize(){
         System.out.println("Holaasss");
         cbxTipoProducto.getItems().addAll(ps.listarTipoProducto());
 
-        //cbxCategoria.getItems().addAll(cs.);
+        cbxCategoria.getItems().addAll(cs.lisCategoria());
+        cbxMarca.getItems().addAll(ms.listarCombobox());
+        cbxUnidadMedida.getItems().addAll(ums.listarCombobox());
     }
 }
