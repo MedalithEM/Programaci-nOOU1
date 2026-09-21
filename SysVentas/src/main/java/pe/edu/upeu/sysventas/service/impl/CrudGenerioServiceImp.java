@@ -16,7 +16,7 @@ public abstract class CrudGenerioServiceImp<T, ID> implements IcrudGenericoServi
 
     @Override
     public T update(ID id, T t) {
-        if(getRepo().existsById(id)){
+        if(!getRepo().existsById(id)){
             throw new ModelNotFoundException("ID no existe: " + id);
         }
         return getRepo().update(t);
