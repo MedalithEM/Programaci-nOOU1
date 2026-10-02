@@ -1,6 +1,5 @@
 package pe.edu.upeu.sysventas.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Marca {
-    private Long idMarca;  //primarekey
+public class UnidMedida {
 
-    private String nombre;
+    private Long idUnidad;
+    private String nombreMedida;
 }

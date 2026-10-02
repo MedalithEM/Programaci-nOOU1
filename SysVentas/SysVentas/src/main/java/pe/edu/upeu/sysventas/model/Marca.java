@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Marca {
-    private Long idMarca;  //primarekey
+    private Long idMarca;
 
     private String nombre;
 }
