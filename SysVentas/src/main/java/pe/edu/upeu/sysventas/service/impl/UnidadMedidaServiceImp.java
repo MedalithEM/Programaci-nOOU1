@@ -23,9 +23,7 @@ public class UnidadMedidaServiceImp extends CrudGenerioServiceImp<UnidMedida, Lo
 
     @Override
     public List<ComboBoxOption> listarCombobox() {
-        if(unidadMedidaRepository.findAll().isEmpty()) {
-            unidadMedidaRepository.seedData();
-        }
+
         List<ComboBoxOption>listar=new ArrayList<>();
         for (UnidMedida m : unidadMedidaRepository.findAll()) {
             ComboBoxOption cb = new ComboBoxOption();

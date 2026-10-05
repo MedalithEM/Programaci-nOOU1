@@ -34,9 +34,7 @@ public class ProductoServiceImp extends CrudGenerioServiceImp<Producto, Long> im
 
     @Override
     public List<Producto> findAll() {
-        if(productoRepository.findAll().isEmpty()){
-            productoRepository.seedData();
-        }
+
 
         return productoRepository.findAll();
     }
