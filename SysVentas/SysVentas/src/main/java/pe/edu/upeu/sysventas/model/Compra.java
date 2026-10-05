@@ -24,7 +24,7 @@ public class Compra extends DocumentoComercial {
     private LocalDate fechaComp;
     //private String tipoDoc;
     private LocalDate fechaReg;
-    private List<CompraDetalle> detalleCompra;
+    private List<CompraDetalle> detalleCompra;  //relacion de composicion
 
     @Override
     public double calcularTotal() {
