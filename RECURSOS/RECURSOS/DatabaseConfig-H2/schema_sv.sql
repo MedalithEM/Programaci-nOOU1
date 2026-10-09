@@ -155,7 +155,7 @@ MERGE INTO usuario (id_usuario, usuario, clave, estado, id_perfil) KEY (id_usuar
 
 MERGE INTO categoria (id_categoria, nombre) KEY (id_categoria) VALUES (1, 'Televisor');
 
- MERGE INTO marca (id_marca, nombre) KEY (id_marca) VALUES (1, 'LG');
+MERGE INTO marca (id_marca, nombre) KEY (id_marca) VALUES (1, 'LG');
 
 MERGE INTO unid_medida (id_unidad, nombre_medida) KEY (id_unidad) VALUES (1, 'Unidad');
 
@@ -164,4 +164,4 @@ MERGE INTO unid_medida (id_unidad, nombre_medida) KEY (id_unidad) VALUES (1, 'Un
 --ALTER TABLE usuario ALTER COLUMN id_usuario RESTART WITH (SELECT COALESCE(MAX(id_usuario), 0) + 1 FROM usuario);
 --ALTER TABLE categoria ALTER COLUMN id_categoria RESTART WITH (SELECT COALESCE(MAX(id_categoria), 0) + 1 FROM categoria);
 --ALTER TABLE marca ALTER COLUMN id_marca RESTART WITH (SELECT COALESCE(MAX(id_marca), 0) + 1 FROM marca);
---ALTER TABLE unid_medida ALTER COLUMN id_unidad RESTART WITH (SELECT COALESCE(MAX(id_unidad), 0) + 1 FROM unid_medida);/
+--ALTER TABLE unid_medida ALTER COLUMN id_unidad RESTART WITH (SELECT COALESCE(MAX(id_unidad), 0) + 1 FROM unid_medida);

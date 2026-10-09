@@ -7,7 +7,7 @@ module pe.edu.upeu.sysventas {
     requires static lombok;
     requires jakarta.validation;
     requires java.sql;
-    requires org.postgresql.jdbc;
+
     requires java.naming;
     requires org.slf4j;
     requires com.zaxxer.hikari;

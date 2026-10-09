@@ -16,13 +16,11 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 /**
- * Configuración de la base de datos H2 (embebida, en archivo o en memoria) con pool HikariCP.
+ * Configuración de la base de datos SQLite (archivo local) con pool HikariCP.
  *
  * <p>Propiedades opcionales en {@code application.properties}:
  * <ul>
  *   <li>{@code db.url} (por defecto {@value #DEFAULT_URL})</li>
- *   <li>{@code db.username} (por defecto {@value #DEFAULT_USER})</li>
- *   <li>{@code db.password} (por defecto vacío)</li>
  *   <li>{@code db.ddl.auto} (por defecto {@code true})</li>
  *   <li>{@code db.ddl.script} (por defecto {@value #DEFAULT_SCRIPT})</li>
  * </ul>
@@ -32,8 +30,7 @@ public final class DatabaseConfig {
     private static final Logger LOG = LoggerFactory.getLogger(DatabaseConfig.class);
 
     private static final String PROPERTIES_FILE = "application.properties";
-    private static final String DEFAULT_URL = "jdbc:h2:file:./data/sysventas";
-    private static final String DEFAULT_USER = "sa";
+    private static final String DEFAULT_URL = "jdbc:sqlite:data/sysventas.db";
     private static final String DEFAULT_SCRIPT = "schema_sv.sql";
 
     private static volatile HikariDataSource dataSource;
@@ -49,7 +46,7 @@ public final class DatabaseConfig {
         Properties props = loadProperties();
         String url = props.getProperty("db.url", DEFAULT_URL);
 
-        HikariDataSource ds = createDataSource(url, props);
+        HikariDataSource ds = createDataSource(url);
         try {
             if (Boolean.parseBoolean(props.getProperty("db.ddl.auto", "true"))) {
                 runScript(ds, props.getProperty("db.ddl.script", DEFAULT_SCRIPT));
@@ -59,7 +56,7 @@ public final class DatabaseConfig {
             throw e;
         }
         dataSource = ds;
-        LOG.info("H2 listo: {}", url);
+        LOG.info("SQLite listo: {}", url);
     }
 
     public static DataSource getDataSource() {
@@ -73,7 +70,7 @@ public final class DatabaseConfig {
         return getDataSource().getConnection();
     }
 
-    /** Cierra el pool. Una base H2 en memoria se pierde al cerrar su última conexión. */
+    /** Cierra el pool y libera el archivo de base de datos. */
     public static synchronized void shutdown() {
         if (dataSource != null) {
             dataSource.close();
@@ -81,19 +78,21 @@ public final class DatabaseConfig {
         }
     }
 
-    private static HikariDataSource createDataSource(String url, Properties props) {
+    private static HikariDataSource createDataSource(String url) {
         HikariConfig config = new HikariConfig();
         config.setPoolName("SysVentasPool");
-        config.setDriverClassName("org.h2.Driver");
+        config.setDriverClassName("org.sqlite.JDBC");
         config.setJdbcUrl(url);
-        config.setUsername(props.getProperty("db.username", DEFAULT_USER));
-        config.setPassword(props.getProperty("db.password", ""));
-        // App de escritorio con un solo usuario: un pool pequeño es suficiente.
+        // SQLite admite un único escritor: un pool pequeño es suficiente.
         config.setMaximumPoolSize(5);
+        // PRAGMAs que SQLite aplica por conexión.
+        config.addDataSourceProperty("foreign_keys", "true");  // desactivado por defecto en SQLite
+        config.addDataSourceProperty("journal_mode", "WAL");   // lectores concurrentes con un escritor
+        config.addDataSourceProperty("busy_timeout", "5000");  // espera 5 s si el archivo está bloqueado
         try {
             return new HikariDataSource(config);
         } catch (RuntimeException e) {
-            throw new IllegalStateException("No fue posible abrir la base de datos H2: " + url, e);
+            throw new IllegalStateException("No fue posible abrir la base de datos SQLite: " + url, e);
         }
     }
 
