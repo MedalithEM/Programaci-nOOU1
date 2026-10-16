@@ -1,3 +1,8 @@
 MERGE INTO categoria (id_categoria, nombre) KEY (id_categoria) VALUES (1, 'Televisor'), (2, 'Ropas'),(3, 'Bebidas');
 
-MERGE INTO marca (id_marca, nombre) KEY (id_marca) VALUES (1, 'LG'),(2, 'Samsung'),(1, 'Lenovo');
+MERGE INTO marca (id_marca, nombre) KEY (id_marca) VALUES (1, 'LG'),
+    (2, 'Samsung'),
+    (1, 'Lenovo');
+MERGE INTO usuario (id_usuario, usuario, clave, estado, id_perfil) KEY (id_usuario)
+    VALUES (2, 'medalith','123456', 'ACTIVO', 1),
+            (3, 'pedrito', '123456', 'ACTIVO', 1);
