@@ -51,7 +51,7 @@ public class ConsultaDNI {
     }
 
     public static void main(String[] args) {
-        PersonaDto p=new ConsultaDNI().consultarDNI("76325808");
+        PersonaDto p=new ConsultaDNI().consultarDNI("43631918");
         System.out.println(p.getDni()+" "+p.getNombre()+" "+p.getApellidoPaterno()+" "+p.getApellidoMaterno());
     }
 

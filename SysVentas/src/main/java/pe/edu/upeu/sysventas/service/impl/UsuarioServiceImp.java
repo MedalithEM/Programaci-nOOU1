@@ -24,28 +24,5 @@ public class UsuarioServiceImp extends CrudGenerioServiceImp<Usuario,Long> imple
     }
 
 
-    @Override
-    public Usuario save(Usuario usuario) {
-        return null;
-    }
 
-    @Override
-    public Usuario update(Long aLong, Usuario usuario) {
-        return null;
-    }
-
-    @Override
-    public List<Usuario> findAll() {
-        return List.of();
-    }
-
-    @Override
-    public Usuario findById(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long aLong) {
-
-    }
 }

@@ -46,30 +46,7 @@ public class VentaServiceImp extends CrudGenerioServiceImp<Venta, Long>
         return camino.toFile();
     }
 
-    @Override
-    public Venta save(Venta venta) {
-        return null;
-    }
 
-    @Override
-    public Venta update(Long aLong, Venta venta) {
-        return null;
-    }
-
-    @Override
-    public List<Venta> findAll() {
-        return List.of();
-    }
-
-    @Override
-    public Venta findById(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long aLong) {
-
-    }
 
    /* @Override
     public Comprobante generarComprobante(Venta venta){

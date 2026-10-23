@@ -31,28 +31,5 @@ public class VentaCarritoServiceImp extends CrudGenerioServiceImp<VentCarrito, L
         ventCarritoRepository.deleteByDniruc(dniruc);
     }
 
-    @Override
-    public VentCarrito save(VentCarrito ventCarrito) {
-        return null;
-    }
 
-    @Override
-    public VentCarrito update(Long aLong, VentCarrito ventCarrito) {
-        return null;
-    }
-
-    @Override
-    public List<VentCarrito> findAll() {
-        return List.of();
-    }
-
-    @Override
-    public VentCarrito findById(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public void delete(Long aLong) {
-
-    }
 }

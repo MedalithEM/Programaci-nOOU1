@@ -34,7 +34,7 @@ public class ClienteServiceImp extends CrudGenerioServiceImp<Cliente, String>
                 ModeloDataAutocomplet data = new ModeloDataAutocomplet();
                 data.setIdx(cliente.getDniruc());
                 data.setNameDysplay(cliente.getNombres());
-                data.setOtherData(cliente.getTipoDocumento().name());
+                data.setOtherData(cliente.getTipoDocumento().name()+";"+cliente.getDireccion());
                 listarclientes.add(data);
             }
         } catch (Exception e) {
@@ -43,28 +43,5 @@ public class ClienteServiceImp extends CrudGenerioServiceImp<Cliente, String>
         return listarclientes;
     }
 
-    @Override
-    public Cliente save(Cliente cliente) {
-        return null;
-    }
 
-    @Override
-    public Cliente update(String s, Cliente cliente) {
-        return null;
-    }
-
-    @Override
-    public List<Cliente> findAll() {
-        return List.of();
-    }
-
-    @Override
-    public Cliente findById(String s) {
-        return null;
-    }
-
-    @Override
-    public void delete(String s) {
-
-    }
 }
