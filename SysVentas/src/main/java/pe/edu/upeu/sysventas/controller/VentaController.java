@@ -186,7 +186,7 @@ public class VentaController {
         codigoPro.clear();
         stockPro.clear();
         cantidadPro.clear();
-        punitPro.clear(); 
+        punitPro.clear();
         preTPro.clear();
         txtBaseImp.clear();
 

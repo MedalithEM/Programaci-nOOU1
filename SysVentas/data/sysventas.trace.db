@@ -2686,3 +2686,15 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "KEY_SEQ" not found [42122-240]
 	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5380)
 	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:110)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2026-10-30 07:52:57.829006-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "delete [*]* from vent_carrito where id_carrito=?"; se esperaba "identifier"
+Syntax error in SQL statement "delete [*]* from vent_carrito where id_carrito=?"; expected "identifier"; SQL statement:
+delete * from vent_carrito where id_carrito=? [42001-240]
+2026-10-30 07:53:00.816717-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "delete [*]* from vent_carrito where id_carrito=?"; se esperaba "identifier"
+Syntax error in SQL statement "delete [*]* from vent_carrito where id_carrito=?"; expected "identifier"; SQL statement:
+delete * from vent_carrito where id_carrito=? [42001-240]
+2026-10-30 07:53:03.128388-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "delete [*]* from vent_carrito where id_carrito=?"; se esperaba "identifier"
+Syntax error in SQL statement "delete [*]* from vent_carrito where id_carrito=?"; expected "identifier"; SQL statement:
+delete * from vent_carrito where id_carrito=? [42001-240]
